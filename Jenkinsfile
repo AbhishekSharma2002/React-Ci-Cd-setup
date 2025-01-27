@@ -60,7 +60,7 @@ pipeline {
             steps {
                 sh '''
                     npm run test 
-                    test -f dist/index.js
+                    test -f dist/index.html
                 '''
             }
         }
