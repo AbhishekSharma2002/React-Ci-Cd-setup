@@ -48,5 +48,21 @@ pipeline {
                 }
             }
         }
+
+        stage('Test'){
+            agent {
+                docker {
+                    image 'node:22.11.0-alpine3.20'
+                    args '-u root'
+                    reuseNode true // Reuse the node for the next test
+                }
+            }
+            steps {
+                sh '''
+                    npm run test 
+
+                '''
+            }
+        }
     }
 }
