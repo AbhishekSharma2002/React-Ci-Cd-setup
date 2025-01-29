@@ -24,6 +24,11 @@ pipeline {
             }
         }
 
+        stage('Take approval'){
+            steps {
+                input 'Should We Deploy'
+            }
+        }
 
         stage('Build') {
             agent {
@@ -84,13 +89,6 @@ pipeline {
                     npm install -g vercel
                     echo $MODE_ENV
                     vercel --prod --token=$VERCEL_TOKEN --confirm --name=cicdproject
-                '''
-            }
-        }
-        stage("Success processing..."){
-            steps{
-                sh '''
-                    echo 'CI pipeline successfully Run'
                 '''
             }
         }
