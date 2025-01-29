@@ -87,5 +87,12 @@ pipeline {
                 '''
             }
         }
+        stage("Success processing..."){
+            steps{
+                sh '''
+                    echo 'CI pipeline successfully Run'
+                '''
+            }
+        }
     }
 }
